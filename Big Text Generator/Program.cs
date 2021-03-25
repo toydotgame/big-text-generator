@@ -14,7 +14,7 @@ namespace Big_Text_Generator
             string[] line5 = { "║ ╔═╗ ║", "║ ╚═╝ ║", "║ ╚═══╗", "╔╝ ╚╝ ║", "║ ╚═══╗", "║ ║    ", "║ ╚╝  ║", "║ ║ ║ ║", "╔╝ ╚╗", "║ ╚╝ ║", "║ ║╚╗╚╗", "║ ╚═══╗", "║ ║ ╚╗  ╔╝ ║ ║", "║ ║ ╚╗  ║", "║ ╚═╝ ║", "║ ║    ", "║ ╚═╝ ╚╗", "║ ║║ ╚╗", "╔══╝ ║", "  ║ ║  ", "║ ╚═╝ ║", " ╚╗  ╔╝ ", "╚╗  ╔╝  ╚╗  ╔╝", "╔╝ ╔╗ ╚╗", "   ║ ║   ", "╔╝  ╚═╗" };
             string[] line6 = { "╚═╝ ╚═╝", "╚═════╝", "╚═════╝", "╚═════╝", "╚═════╝", "╚═╝    ", "╚═════╝", "╚═╝ ╚═╝", "╚═══╝", "╚════╝", "╚═╝ ╚═╝", "╚═════╝", "╚═╝  ╚══╝  ╚═╝", "╚═╝  ╚══╝", "╚═════╝", "╚═╝    ", "╚══════╝", "╚═╝╚══╝", "╚════╝", "  ╚═╝  ", "╚═════╝", "  ╚══╝  ", " ╚══╝    ╚══╝ ", "╚══╝╚══╝", "   ╚═╝   ", "╚═════╝" };
             string word;
-            string path = @"c:\temp\BigText_Output.txt";
+            string path = @"BigText_Output.txt";
             Console.WriteLine("╔════╗ ╔═══╗╔═════╗   ╔═══════╗╔═════╗╔══╗╔══╗╔═══════╗\n║ ╔╗ ║ ╚╗ ╔╝║ ╔═╗ ║   ║ ╔╗ ╔╗ ║║ ╔═══╝╚╗ ╚╝ ╔╝║ ╔╗ ╔╗ ║\n║ ╚╝ ╚╗ ║ ║ ║ ║ ╚═╝   ╚═╝║ ║╚═╝║ ╚══╗  ╚╗  ╔╝ ╚═╝║ ║╚═╝\n║ ╔═╗ ║ ║ ║ ║ ║╔══╗      ║ ║   ║ ╔══╝  ╔╝  ╚╗    ║ ║   \n║ ╚═╝ ║╔╝ ╚╗║ ╚╝  ║      ║ ║   ║ ╚═══╗╔╝ ╔╗ ╚╗   ║ ║   \n╚═════╝╚═══╝╚═════╝      ╚═╝   ╚═════╝╚══╝╚══╝   ╚═╝   \nEnter text below:");
             word = Console.ReadLine();
             Console.WriteLine("Text length = " + Convert.ToString(word.Length));
@@ -56,7 +56,7 @@ namespace Big_Text_Generator
             }
             File.AppendAllText(path, "\n");
             string readText = File.ReadAllText(path);
-            Console.WriteLine(readText + "\nText file created at " + path + "\nPress any key to exit");
+            Console.WriteLine(readText + "\nText file 'BigText_Output.txt' created. \nPress any key to exit...");
             Console.ReadKey();
         }
     }
