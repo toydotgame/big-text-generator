@@ -6,3 +6,7 @@ I made this because why not. The entire concept is from [Redo122/Big-Text-Genera
 
 This version started at `v1.2` of upstream.
 
+## Attributions
+* [Redo122]/[Big-Text-Generator] - Idea, methodology, C# version.
+* [_Mega Cool Text_'s "Big letters generator"](http://megacooltext.com/generator/big-letters/) - Big text \#9, most letter shapes.
+* [theasciicode.com.ar](https://theasciicode.com.ar/) - ASCII characters _185-188_ and _200-206_ for fixing some pretty crappy letters on the half of Mega Cool Text.
