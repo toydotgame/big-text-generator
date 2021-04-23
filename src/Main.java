@@ -1,31 +1,57 @@
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.stream.Stream;
 
 // TODO - `System.err` for errors, instead of `System.out`.
 
+/* 
+ * TODO - Charset, seperated into a String[] per line.
+ * 
+ * ╔═══╗╔══╗ ╔═══╗╔═══╗╔═══╗╔═══╗╔═══╗╔╗ ╔╗╔══╗  ╔╗╔╗╔═╗╔╗   ╔═╗╔═╗╔═╗ ╔╗╔═══╗╔═══╗╔═══╗╔═══╗╔═══╗╔════╗╔╗ ╔╗╔╗  ╔╗╔╗  ╔╗  ╔╗╔═╗╔═╗╔╗  ╔╗╔════╗
+ * ║╔═╗║║╔╗║ ║╔═╗║╚╗╔╗║║╔══╝║╔══╝║╔═╗║║║ ║║╚╗╔╝  ║║║║║╔╝║║   ║ ╚╝ ║║ ╚╗║║║╔═╗║║╔═╗║║╔═╗║║╔═╗║║╔══╝║╔╗╔╗║║║ ║║║╚╗╔╝║║╚╗╔╝╚╗╔╝║╚╗╚╝╔╝║╚╗╔╝║╚══╗ ║
+ * ║║ ║║║╚╝╚╗║║ ╚╝ ║║║║║╚══╗║╚══╗║║ ╚╝║╚═╝║ ║║   ║║║╠╩╝ ║║   ║╔╗╔╗║║╔╗╚╝║║║ ║║║╚═╝║║║ ║║║╚═╝║║╚══╗╚╝║║╚╝║║ ║║╚╗║║╔╝╚╗║║  ║║╔╝ ╚╗╔╝ ╚╗╚╝╔╝  ╔╝╔╝
+ * ║╚═╝║║╔═╗║║║ ╔╗ ║║║║║╔══╝║╔══╝║║╔═╗║╔═╗║ ║║ ╔╗║║║╠╦╗ ║║ ╔╗║║║║║║║║╚╗ ║║║ ║║║╔══╝║╚═╝║║╔╗╔╝╚══╗║  ║║  ║║ ║║ ║╚╝║  ║╚╝╔╗╚╝║  ╔╝╚╗  ╚╗╔╝  ╔╝╔╝ 
+ * ║╔═╗║║╚═╝║║╚═╝║╔╝╚╝║║╚══╗║║   ║╚╝ ║║║ ║║╔╝╚╗║╚╝║║║║╚╗║╚═╝║║║║║║║║║ ║ ║║╚═╝║║║   ╚══╗║║║║╚╗╔══╝║  ║║  ║╚═╝║ ╚╗╔╝  ╚╗╔╝╚╗╔╝ ╔╝╔╗╚╗  ║║  ╔╝ ╚═╗
+ * ╚╝ ╚╝╚═══╝╚═══╝╚═══╝╚═══╝╚╝   ╚═══╝╚╝ ╚╝╚══╝╚══╝╚╝╚═╝╚═══╝╚╝╚╝╚╝╚╝ ╚═╝╚═══╝╚╝      ╚╝╚╝╚═╝╚═══╝  ╚╝  ╚═══╝  ╚╝    ╚╝  ╚╝  ╚═╝╚═╝  ╚╝  ╚════╝
+ * ╔═══╗ ╔╗ ╔═══╗╔═══╗╔╗ ╔╗╔═══╗╔═══╗╔═══╗╔═══╗╔═══╗
+ * ║╔═╗║╔╝║ ║╔═╗║║╔═╗║║║ ║║║╔══╝║╔══╝║╔═╗║║╔═╗║║╔═╗║
+ * ║║║║║╚╗║ ╚╝╔╝║╚╝╔╝║║╚═╝║║╚══╗║╚══╗╚╝╔╝║║╚═╝║║╚═╝║
+ * ║║║║║ ║║ ╔═╝╔╝╔╗╚╗║╚══╗║╚══╗║║╔═╗║  ║╔╝║╔═╗║╚══╗║
+ * ║╚═╝║╔╝╚╗║ ╚═╗║╚═╝║   ║║╔══╝║║╚═╝║  ║║ ║╚═╝║╔══╝║
+ * ╚═══╝╚══╝╚═══╝╚═══╝   ╚╝╚═══╝╚═══╝  ╚╝ ╚═══╝╚═══╝
+ * 
+ * ╔═╗      ╔═════╗
+ * ║ ║      ║ ╔═╗ ║
+ * ║ ║      ╚═╝ ║ ║
+ * ╚═╝╔═╗       ╚═╝
+ * ╔═╗╚╗║╔═╗    ╔═╗
+ * ╚═╝ ╚╝╚═╝    ╚═╝
+ */
+
 public class Main {
+	static Set<String> charSet = DataStorage.charSet;	
+	
 	public static void main(String[] args) {
-		String[] allowedChars = {"a", "b", "c"};
-		Set<String> charSet = new HashSet<>(Arrays.asList(allowedChars));
-		
 		System.out.println("╔════╗ ╔═══╗╔═════╗   ╔═══════╗╔═════╗╔══╗╔══╗╔═══════╗\n"
 						 + "║ ╔╗ ║ ╚╗ ╔╝║ ╔═╗ ║   ║ ╔╗ ╔╗ ║║ ╔═══╝╚╗ ╚╝ ╔╝║ ╔╗ ╔╗ ║\n"
 						 + "║ ╚╝ ╚╗ ║ ║ ║ ║ ╚═╝   ╚═╝║ ║╚═╝║ ╚══╗  ╚╗  ╔╝ ╚═╝║ ║╚═╝\n"
 						 + "║ ╔═╗ ║ ║ ║ ║ ║╔══╗      ║ ║   ║ ╔══╝  ╔╝  ╚╗    ║ ║   \n"
 						 + "║ ╚═╝ ║╔╝ ╚╗║ ╚╝  ║      ║ ║   ║ ╚═══╗╔╝ ╔╗ ╚╗   ║ ║   \n"
-						 + "╚═════╝╚═══╝╚═════╝      ╚═╝   ╚═════╝╚══╝╚══╝   ╚═╝   ");
-		System.out.println("Please enter your input text.");
-		Scanner scanner = new Scanner(System.in);
+						 + "╚═════╝╚═══╝╚═════╝      ╚═╝   ╚═════╝╚══╝╚══╝   ╚═╝   JAVA EDITION\n"
+						 + "A Java port of Redo122's Big-Text-Generator. By toydotgame, 2021.\n");
+		System.out.println("Please enter your input text:");
+		System.out.print("> ");
+		Scanner scanner = new Scanner(System.in); // Initialises user input, after the prompt.
 		
 		String input = scanner.nextLine();
-		scanner.close();
-		for(int i = 1; i <= input.length(); i++) {
-			boolean safe = charSet.contains(String.valueOf(input.charAt(i - 1)));
-			System.out.println("Char at position " + String.valueOf(i) + " is: " + input.charAt(i - 1) + ". Safe?: " + String.valueOf(safe));
+		for(int i = 0; i < input.length(); i++) {
+			String currentChar = String.valueOf(input.charAt(i)).toUpperCase();
+			boolean safe = charSet.contains(currentChar);
+			if(safe == false) {
+				System.err.println("ERROR: The character \"" + currentChar + "\" is not valid! Please use the Latin alphabet and only the symbols on your keyboard. Check the README for details.");
+				System.exit(128); // 128 is the Unix Exit Code for a bad argument. TODO: Untested
+			}
 		}
+		System.out.println("Success.");
+		scanner.close();
 	}
 }
