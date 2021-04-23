@@ -1,15 +1,8 @@
 # Big Text Generator
-This program will turn your text into a large ascii art quickly and efficiently.
-Once it's generated the ANSI art, it will put it into a text file.
-The text file is overwritten after each use of the program.
-Currently only supports letters, however I will probably add support for numbers and common symbols in the future.
-Entering anything but letters will hang the program.
+###### A port to Java made by toydotgame
+I made this because why not. The entire concept is from [Redo122/Big-Text-Generator](https://github.com/Redo122/Big-Text-Generator).
 
-# v1.2
-Added support for numbers, spaces, exclamation marks, question marks, periods, and commas.
+**Development works like this:** Redo122 adds a feature or fixes a large bug, and I then port his changes to Java. Pretty simple. For the sake of not being a total scam, I'll fix my own bugs and probably change some methods to be a bit nicer than the minimal original C# code.
 
-# v1.1
-Changed where the text file is stored to fix the problem that occurs if you didn't have a temp folder on your C: drive.
+This version started at `v1.2` of upstream.
 
-# v1.0
-Initial release
