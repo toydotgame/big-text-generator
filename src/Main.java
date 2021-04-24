@@ -10,6 +10,7 @@ public class Main {
 	static String[] bigText4 = DataStorage.bigText4;
 	static String[] bigText5 = DataStorage.bigText5;
 	static String[] bigText6 = DataStorage.bigText6;
+	static String input;
 	
 	public static void main(String[] args) {
 		System.out.println("╔════╗ ╔═══╗╔═════╗   ╔═══════╗╔═════╗╔══╗╔══╗╔═══════╗\n"
@@ -19,7 +20,6 @@ public class Main {
 						 + "║ ╚═╝ ║╔╝ ╚╗║ ╚╝  ║      ║ ║   ║ ╚═══╗╔╝ ╔╗ ╚╗   ║ ║   \n"
 						 + "╚═════╝╚═══╝╚═════╝      ╚═╝   ╚═════╝╚══╝╚══╝   ╚═╝   JAVA EDITION\n"
 						 + "A Java port of Redo122's Big-Text-Generator. By toydotgame, 2021.\n");
-		String input = "";
 		if(args.length == 0) {
 			System.out.println("Please enter your input text:");
 			System.out.print("> ");
@@ -28,7 +28,7 @@ public class Main {
 			input = scanner.nextLine().toUpperCase();
 			scanner.close();
 		} else {
-			input = "Hi!";
+			input = String.join("", args);
 		}
 		for(int i = 0; i < input.length(); i++) {
 			// TODO: Optimise char checker. Maybe just check that `input` only contains what `allowedChars` has.
@@ -38,45 +38,43 @@ public class Main {
 				System.exit(128); // 128 is the Unix Exit Code for a bad argument. TODO: Untested
 			}
 		}
-		output(input);
+		output();
 	}
 	
-	public static void output(String input) {
+	public static void output() {
 		// TODO: Optimise so I don't need **six** `for()` loops.
 		for(int i = 0; i < input.length(); i++) {
-			String currentChar = String.valueOf(input.charAt(i));
-			System.out.println(currentChar);
+			String currentChar = String.valueOf(input.charAt(i)).toUpperCase();
 			int charID = allowedCharsString.indexOf(currentChar);
-			System.out.println(String.valueOf(charID));
 			System.out.print(bigText1[charID]);
 		}
 		System.out.print("\n");
 		for(int i = 0; i < input.length(); i++) {
-			String currentChar = String.valueOf(input.charAt(i));
+			String currentChar = String.valueOf(input.charAt(i)).toUpperCase();
 			int charID = allowedCharsString.indexOf(currentChar);
 			System.out.print(bigText2[charID]);
 		}
 		System.out.print("\n");
 		for(int i = 0; i < input.length(); i++) {
-			String currentChar = String.valueOf(input.charAt(i));
+			String currentChar = String.valueOf(input.charAt(i)).toUpperCase();
 			int charID = allowedCharsString.indexOf(currentChar);
 			System.out.print(bigText3[charID]);
 		}
 		System.out.print("\n");
 		for(int i = 0; i < input.length(); i++) {
-			String currentChar = String.valueOf(input.charAt(i));
+			String currentChar = String.valueOf(input.charAt(i)).toUpperCase();
 			int charID = allowedCharsString.indexOf(currentChar);
 			System.out.print(bigText4[charID]);
 		}
 		System.out.print("\n");
 		for(int i = 0; i < input.length(); i++) {
-			String currentChar = String.valueOf(input.charAt(i));
+			String currentChar = String.valueOf(input.charAt(i)).toUpperCase();
 			int charID = allowedCharsString.indexOf(currentChar);
 			System.out.print(bigText5[charID]);
 		}
 		System.out.print("\n");
 		for(int i = 0; i < input.length(); i++) {
-			String currentChar = String.valueOf(input.charAt(i));
+			String currentChar = String.valueOf(input.charAt(i)).toUpperCase();
 			int charID = allowedCharsString.indexOf(currentChar);
 			System.out.print(bigText6[charID]);
 		}
