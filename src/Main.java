@@ -19,12 +19,17 @@ public class Main {
 						 + "║ ╚═╝ ║╔╝ ╚╗║ ╚╝  ║      ║ ║   ║ ╚═══╗╔╝ ╔╗ ╚╗   ║ ║   \n"
 						 + "╚═════╝╚═══╝╚═════╝      ╚═╝   ╚═════╝╚══╝╚══╝   ╚═╝   JAVA EDITION\n"
 						 + "A Java port of Redo122's Big-Text-Generator. By toydotgame, 2021.\n");
-		System.out.println("Please enter your input text:");
-		System.out.print("> ");
-		Scanner scanner = new Scanner(System.in); // Initialises user input, after the prompt.
-		
-		String input = scanner.nextLine().toUpperCase();
-		scanner.close();
+		String input = "";
+		if(args.length == 0) {
+			System.out.println("Please enter your input text:");
+			System.out.print("> ");
+			Scanner scanner = new Scanner(System.in); // Initialises user input, after the prompt.
+			
+			input = scanner.nextLine().toUpperCase();
+			scanner.close();
+		} else {
+			input = "Hi!";
+		}
 		for(int i = 0; i < input.length(); i++) {
 			// TODO: Optimise char checker. Maybe just check that `input` only contains what `allowedChars` has.
 			String currentChar = String.valueOf(input.charAt(i)).toUpperCase();
@@ -40,7 +45,9 @@ public class Main {
 		// TODO: Optimise so I don't need **six** `for()` loops.
 		for(int i = 0; i < input.length(); i++) {
 			String currentChar = String.valueOf(input.charAt(i));
+			System.out.println(currentChar);
 			int charID = allowedCharsString.indexOf(currentChar);
+			System.out.println(String.valueOf(charID));
 			System.out.print(bigText1[charID]);
 		}
 		System.out.print("\n");
