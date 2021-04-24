@@ -1,8 +1,6 @@
 import java.util.Scanner;
 import java.util.Set;
 
-// TODO - `System.err` for errors, instead of `System.out`.
-
 public class Main {
 	static String allowedCharsString = String.join("", DataStorage.allowedChars);
 	static Set<String> charSet = DataStorage.charSet;
@@ -28,9 +26,9 @@ public class Main {
 		String input = scanner.nextLine().toUpperCase();
 		scanner.close();
 		for(int i = 0; i < input.length(); i++) {
+			// TODO: Optimise char checker. Maybe just check that `input` only contains what `allowedChars` has.
 			String currentChar = String.valueOf(input.charAt(i)).toUpperCase();
-			boolean safe = charSet.contains(currentChar);
-			if(safe == false) {
+			if(charSet.contains(currentChar) == false) {
 				System.err.println("ERROR: The character \"" + currentChar + "\" is not valid! Please use the Latin alphabet and only the symbols on your keyboard. Check the README for details.");
 				System.exit(128); // 128 is the Unix Exit Code for a bad argument. TODO: Untested
 			}
