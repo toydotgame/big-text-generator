@@ -4,15 +4,14 @@ import java.util.Set;
 // TODO - `System.err` for errors, instead of `System.out`.
 
 public class Main {
+	static String allowedCharsString = String.join("", DataStorage.allowedChars);
 	static Set<String> charSet = DataStorage.charSet;
-	static String[] allowedChars = DataStorage.allowedChars;
 	static String[] bigText1 = DataStorage.bigText1;
 	static String[] bigText2 = DataStorage.bigText2;
 	static String[] bigText3 = DataStorage.bigText3;
 	static String[] bigText4 = DataStorage.bigText4;
 	static String[] bigText5 = DataStorage.bigText5;
 	static String[] bigText6 = DataStorage.bigText6;
-	static String allowedCharsString = DataStorage.allowedCharsString;
 	
 	public static void main(String[] args) {
 		System.out.println("╔════╗ ╔═══╗╔═════╗   ╔═══════╗╔═════╗╔══╗╔══╗╔═══════╗\n"
@@ -27,6 +26,7 @@ public class Main {
 		Scanner scanner = new Scanner(System.in); // Initialises user input, after the prompt.
 		
 		String input = scanner.nextLine().toUpperCase();
+		scanner.close();
 		for(int i = 0; i < input.length(); i++) {
 			String currentChar = String.valueOf(input.charAt(i)).toUpperCase();
 			boolean safe = charSet.contains(currentChar);
@@ -36,11 +36,10 @@ public class Main {
 			}
 		}
 		output(input);
-		System.out.println("Success.");
-		scanner.close();
 	}
 	
 	public static void output(String input) {
+		// TODO: Optimise so I don't need **six** `for()` loops.
 		for(int i = 0; i < input.length(); i++) {
 			String currentChar = String.valueOf(input.charAt(i));
 			int charID = allowedCharsString.indexOf(currentChar);

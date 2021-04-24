@@ -40,6 +40,4 @@ public class DataStorage {
 		"╚═══╝", "╚══╝", "╚═══╝", "╚═══╝", "   ╚╝", "╚═══╝", "╚═══╝", "  ╚╝ ", "╚═══╝", "╚═══╝",
 		"╚═╝", " ╚╝", "╚═╝", "    ╚═╝",  "     "
 	};
-	
-	static String allowedCharsString = String.join("", allowedChars);
 }
